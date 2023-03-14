@@ -31,6 +31,6 @@ class Display:
 
         print(board_display)
 
-    def reset_board(self):
+    def reset_boards(self):
         self.board_compared_list = []
         self.board_displayed_list = []

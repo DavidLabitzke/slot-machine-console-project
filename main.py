@@ -39,7 +39,7 @@ def main():
                     user.get_lines()
                     user.get_bid_per_line()
                     user.calculate_new_bid_total(per_line=user.bid_per_line, num_lines=user.num_lines_bid_on)
-                display.reset_board()
+                display.reset_boards()
                 print("\n")
 
 
