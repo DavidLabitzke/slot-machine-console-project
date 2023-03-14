@@ -84,3 +84,12 @@ class User:
             print(f"Thanks for playing. Your total payout is ${self.balance / 100: .2f}")
             self.is_playing = False
             return self.is_playing
+
+    def double_check_bid(self):
+        print("You do not have enough money to place this bid. Would you like to adjust your bid?")
+        response = input("Type 'y' to adjust your bid. Anything else to deposit more money: ")
+        if response.lower() == "y":
+            self.get_lines()
+            self.get_bid_per_line()
+        else:
+            self.double_check_deposit()
