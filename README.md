@@ -65,30 +65,30 @@ This stores the User class, which is responsible for the majority of inputs the 
 
 ## Global Variables
 
-This also stores 2 global variables. 
-NUM_LINES_POSSIBLE - list of the number of lines a user can choose to bid on. It has 5 values, ranging from 5 to 25
-BIDS_POSSIBLE_PER_LINE - list of the number of pennies a user can bid on per line. It has 5 values, ranging from 1 to 20
+This also stores 2 global variables.   
+NUM_LINES_POSSIBLE - list of the number of lines a user can choose to bid on. It has 5 values, ranging from 5 to 25  
+BIDS_POSSIBLE_PER_LINE - list of the number of pennies a user can bid on per line. It has 5 values, ranging from 1 to 20  
 
 ## Attributes
 
-A User object is created in the main.py file, and is initialized with balance, num_lines_bid_on, bid_per_line, bid_total, and is_playing attributes. 
-Balance - the amount of money the user has to play with, stored as an int (representing the number of pennies the user has)
-num_lines_bid_on - the number of lines the user wants to bid on
-bid_per_line - the number of pennies being bid by the user per line
-bid_total - calculated by multiplying num_lines_bid_on by bid_per_line. This is the total amount the user is waging per spin
-is_playing - a boolean, set to True, which is responsible for controlling the flow of the game
+A User object is created in the main.py file, and is initialized with balance, num_lines_bid_on, bid_per_line, bid_total, and is_playing attributes.  
+Balance - the amount of money the user has to play with, stored as an int (representing the number of pennies the user has)  
+num_lines_bid_on - the number of lines the user wants to bid on  
+bid_per_line - the number of pennies being bid by the user per line  
+bid_total - calculated by multiplying num_lines_bid_on by bid_per_line. This is the total amount the user is waging per spin  
+is_playing - a boolean, set to True, which is responsible for controlling the flow of the game  
 
 ## Methods
 
-The User class has 8 methods. 
-1. get_deposit - captures how much money the user wants to enter into the machine to begin with
-2. get_lines - captures how many lines the user wants to bid on
-3. get_bid_per_line - captures the user's bid per line
-4. calculate_new_bid_total - called to adjust the user's bid total after the previous 2 methods have been called. Takes the per line bid and the number of lines bid on as parameters
-5. deduct_bid_from_total - subtracts the bid total from the user's balance
-6. continue_playing - displays a script asking if the user wants to continue playing. If they type 'n', the is_playing variable will switch to False, ending the game
-7. double_check_deposit - called if the user does not want to change their bid when they haven't got enough money. It will urge the user to add more funds, otherwise the game ends
-8. double_check_bid - called if the user does not have enough money to place the current bid. It gives the user the option to either adjust their bid, or add more money
+The User class has 8 methods.   
+1. get_deposit - captures how much money the user wants to enter into the machine to begin with  
+2. get_lines - captures how many lines the user wants to bid on  
+3. get_bid_per_line - captures the user's bid per line  
+4. calculate_new_bid_total - called to adjust the user's bid total after the previous 2 methods have been called. Takes the per line bid and the number of lines bid on as parameters  
+5. deduct_bid_from_total - subtracts the bid total from the user's balance  
+6. continue_playing - displays a script asking if the user wants to continue playing. If they type 'n', the is_playing variable will switch to False, ending the game  
+7. double_check_deposit - called if the user does not want to change their bid when they haven't got enough money. It will urge the user to add more funds, otherwise the game ends  
+8. double_check_bid - called if the user does not have enough money to place the current bid. It gives the user the option to either adjust their bid, or add more money  
 
 # display.py
 
@@ -96,49 +96,49 @@ This stores the Display class, which is used for storing data about the gameboar
 
 ## Global Variables
 
-This also stores 2 global variables
-ROWS - the number of rows on the gameboard
-COLUMNS - the number of columns on the gameboard
+This also stores 2 global variables  
+ROWS - the number of rows on the gameboard  
+COLUMNS - the number of columns on the gameboard  
 
 ## Attributes
 
-A Display object is created in the main.py file, and is initialized with symbols, board_compared, and board_displayed attributes
-symbols - stores a list of all the possible symbols to choose from, per the number of times specified in the SYMBOL_QUANTITIES dictionary. This is achieved by a list comprehension
-board_compared - stores a list of 5 lists, which represents each of the 5 columns of the gameboard. Initially an empty list, this is used to determine if any symbols match on a line and to calculate payouts
-board_displayed - stores a list of 3 lists, which represents each of the 3 rows of the gameboard. Initially an empty list, this is used to create the board that is displayed to the user
+A Display object is created in the main.py file, and is initialized with symbols, board_compared, and board_displayed attributes    
+symbols - stores a list of all the possible symbols to choose from, per the number of times specified in the SYMBOL_QUANTITIES dictionary. This is achieved by a list comprehension    
+board_compared_list - stores a list of 5 lists, which represents each of the 5 columns of the gameboard. Initially an empty list, this is used to determine if any symbols match on a line and to calculate payouts    
+board_displayed_list - stores a list of 3 lists, which represents each of the 3 rows of the gameboard. Initially an empty list, this is used to create the board that is displayed to the user   
 
 ## Methods
 
-The Display class has 3 methods. 
-1. create_board_lists - The random module is used to randomly select emojis from the symbols list, which first creates the board_compared list. Afterwards, a list comprehension is used to create the board_display list
+The Display class has 3 methods.   
+1. create_board_lists - The random module is used to randomly select emojis from the symbols list, which first creates the board_compared list. Afterwards, a list comprehension is used to create the board_display list  
 2. create_board_display - Calls the create_board_lists method, then uses the board_displayed list to print the board to the console for the user
-3. reset_boards - resets the board_compared and board_displayed to its inital value
+3. reset_boards - resets the board_compared and board_displayed to its inital value  
 
 # outcomes.py
 
-This stores the Outcomes class, which is used to determine any payouts to the user
+This stores the Outcomes class, which is used to determine any payouts to the user  
 
-## Global Variablews
+## Global Variables
 
-This also stores 2 global variables
-FOUR_LINE_BONUS - an int which is multiplied to a line's payout if there are 4 matching symbols
-FIVE_LINE_BONUS - an int which is multiplied to a line's payout if there are 5 matching symbols
+This also stores 2 global variables  
+FOUR_LINE_BONUS - an int which is multiplied to a line's payout if there are 4 matching symbols  
+FIVE_LINE_BONUS - an int which is multiplied to a line's payout if there are 5 matching symbols  
 
 ## Attributes
 
-An Outcomes object is created in the main.py file once the user's bid per line, number of lines bid on are captured, as well as the board_compared in the display is created. 
-These are all required parameters in order to create an Outcomes object
-num_lines_bid_on - required parameter, an int of the number of lines the user has bid on
-bid_per_line - required parameter, an int of the number of pennies bid per line
-board_to_compare - required parameter, the board_compared from the Display object
-total_win - set to 0, the final result of the wins from the user
+An Outcomes object is created in the main.py file once the user's bid per line, number of lines bid on are captured, as well as the board_compared in the display is created.   
+These are all required parameters in order to create an Outcomes object  
+num_lines_bid_on - required parameter, an int of the number of lines the user has bid on   
+bid_per_line - required parameter, an int of the number of pennies bid per line  
+board_to_compare - required parameter, the board_compared from the Display object  
+total_win - set to 0, the final result of the wins from the user  
 
 ## Methods
 
-The Outcomes class has 3 methods
-1. create_lines - examines each line the user has bid on. Uses the LINE_COMBOS_CONFIGURATIONS dictionary to check which symbols are at the associated spots per line. From there, each line is stored as a string in the LINES_COMBOS_OUTCOMES dictionary
-2. check_if_winner - checks through each item in the LINES_COMBOS_OUTCOMES dictionary, and checks if any of the lines are winning lines. If they are, a message will print for each winning line, concluding with a final message of the total payout. This method returns the total payout
-3. reset_values - resets all the values of the LINES_COMBOS_OUTCOMES dictionary to None, and the total_win to 0
+The Outcomes class has 3 methods  
+1. create_lines - examines each line the user has bid on. Uses the LINE_COMBOS_CONFIGURATIONS dictionary to check which symbols are at the associated spots per line. From there, each line is stored as a string in the LINES_COMBOS_OUTCOMES dictionary  
+2. check_if_winner - checks through each item in the LINES_COMBOS_OUTCOMES dictionary, and checks if any of the lines are winning lines. If they are, a message will print for each winning line, concluding with a final message of the total payout. This method returns the total payout  
+3. reset_values - resets all the values of the LINES_COMBOS_OUTCOMES dictionary to None, and the total_win to 0  
 
 # main.py
 
