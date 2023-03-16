@@ -8,6 +8,7 @@ from line_combos_configurations import LINE_COMBOS_CONFIGURATIONS
 
 
 def hear_rules():
+    """Prints the script for telling the user the rules about the game if desired"""
     print("Would you like to hear the rules?")
     response = input("Hit 'y' to hear the rules. Anything else to continue: ")
     if not response == "y":
@@ -38,8 +39,9 @@ def hear_rules():
     print("That should cover just about everything. Good luck and happy playing!")
 
 
-def create_lines_board(line_num: int, line_list: list):
-    game_board = [[" " for _ in range(ROWS)] for _ in range(COLUMNS)]
+def create_lines_board(line_num: int, line_list: list) -> str:
+    """Prints each line configuration to the console for the user to examine"""
+    game_board: list = [[" " for _ in range(ROWS)] for _ in range(COLUMNS)]
     for index, game_row in enumerate(game_board):
         game_row[line_list[index]] = "x"
     board_display_list = [[game_board[j][i] for j in range(COLUMNS)] for i in range(ROWS)]

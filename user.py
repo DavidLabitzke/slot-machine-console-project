@@ -1,7 +1,6 @@
 # user.py, handles any inputs from the user
-
-NUM_LINES_POSSIBLE = [5, 10, 15, 20, 25]
-BIDS_POSSIBLE_PER_LINE = [1, 2, 5, 10, 20]
+NUM_LINES_POSSIBLE: list = [5, 10, 15, 20, 25]
+BIDS_POSSIBLE_PER_LINE: list = [1, 2, 5, 10, 20]
 
 
 class User:
@@ -14,6 +13,7 @@ class User:
         self.is_playing: bool = True
 
     def get_deposit(self):
+        """Script that plays at the beginning to capture the user's initial deposit"""
         while True:
             deposit_amount = input("How Much Would You Like To Deposit? (This machine only accepts bills. No coins) $")
             try:
@@ -28,9 +28,10 @@ class User:
                     break
 
     def get_lines(self):
+        """Script that runs to capture the number of lines the user wants to bid on"""
         while True:
-            possibilities = str(NUM_LINES_POSSIBLE)[1:-1]
-            error_message = f"Please type in either {possibilities}"
+            possibilities: str = str(NUM_LINES_POSSIBLE)[1:-1]
+            error_message: str = f"Please type in either {possibilities}"
             num_of_lines = input(f"How Many Lines Would You Like To Bid On? ({possibilities}): ")
             try:
                 num_of_lines = int(num_of_lines)
@@ -44,9 +45,10 @@ class User:
                     break
 
     def get_bid_per_line(self):
+        """Script that runs to capture the amount bid per line"""
         while True:
-            bid_possibilities = str(BIDS_POSSIBLE_PER_LINE)[1:-1]
-            error_message = f"Please Type In Either {bid_possibilities}"
+            bid_possibilities: str = str(BIDS_POSSIBLE_PER_LINE)[1:-1]
+            error_message: str = f"Please Type In Either {bid_possibilities}"
             bid_per_line = input(f"How Many Pennies Would You Like To Bid Per Line? ({bid_possibilities}): ")
             try:
                 bid_per_line = int(bid_per_line)
@@ -60,14 +62,17 @@ class User:
                     break
 
     def calculate_new_bid_total(self, per_line, num_lines):
+        """Changes the self.bid_total"""
         self.bid_total = per_line * num_lines
 
     def deduct_bet_from_balance(self):
+        """Calculates the bid total and subtracts that from the balance"""
         self.bid_total = self.num_lines_bid_on * self.bid_per_line
         self.balance -= self.bid_total
         print(f"You have ${self.balance / 100: .2f} remaining")
 
     def continue_playing(self) -> bool:
+        """Script that plays after each spin, asking if the user wants to continue playing"""
         print("Would you like to keep playing?")
         keep_playing = input("Type 'n' to stop playing, anything else to continue: ")
         if keep_playing.lower() == "n":
@@ -75,9 +80,10 @@ class User:
             print(f"Thanks for playing. Your total payout is ${self.balance / 100: .2f}")
         return self.is_playing
 
-    def double_check_deposit(self):
+    def double_check_deposit(self) -> bool:
+        """Called by the double_check_bid method when the user indicates they want to add more money"""
         print("Insufficient funds. Please insert more money to continue")
-        insert_more = input("Type 'y' to deposit more money. Anything else to exit: ")
+        insert_more = input("Type 'y' to deposit more money. Anything else to quit playing: ")
         if insert_more.lower() == "y":
             self.get_deposit()
         else:
@@ -86,6 +92,8 @@ class User:
             return self.is_playing
 
     def double_check_bid(self):
+        """Script that plays when the user does not have enough money to place the current bid.
+        Urges the user to either change their bet, or add more money"""
         print("You do not have enough money to place this bid. Would you like to adjust your bid?")
         response = input("Type 'y' to adjust your bid. Anything else to deposit more money: ")
         if response.lower() == "y":

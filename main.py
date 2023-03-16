@@ -10,6 +10,7 @@ user = User()
 
 
 def main():
+    """Runs The Game"""
     print("Welcome To My Slot Machine!!!")
     hear_rules()
     user.get_deposit()
