@@ -11,7 +11,7 @@ Each emoji returns a different amount if 3 are matched on a line.
 If 4 are matched, the reward is multiplied by 4
 If 5 are matched, the reward is multiplied by 10
 These are all 16 emojis, with the reward given in pennies
-✅ - 10000
+✅ - 10000 
 ♦ - 5000
 ♥ - 4000
 ♣ - 3000
@@ -135,15 +135,24 @@ total_win - set to 0, the final result of the wins from the user
 
 ## Methods
 
-The Outcomes class has 3 methods  
+The Outcomes class has 6 methods  
 1. create_lines - examines each line the user has bid on. Uses the LINE_COMBOS_CONFIGURATIONS dictionary to check which symbols are at the associated spots per line. From there, each line is stored as a string in the LINES_COMBOS_OUTCOMES dictionary  
-2. check_if_winner - checks through each item in the LINES_COMBOS_OUTCOMES dictionary, and checks if any of the lines are winning lines. If they are, a message will print for each winning line, concluding with a final message of the total payout. This method returns the total payout  
-3. reset_values - resets all the values of the LINES_COMBOS_OUTCOMES dictionary to None, and the total_win to 0  
+2. calculate_earning_per_line - calculates an individual line's total earnings, based on the bid_per_line, the base payout for the symbol, and if either 4 or 5 symbols match on a line, the FOUR_LINE_BONUS or FIVE_LINE_BONUS respectively
+3. calculate_total_same - a static method that loops through a line, and returns the number of symbols that match up going left to right. 
+4. sum_each_line_winning - loops through all the entries in the LINE_COMBOS_OUTCOMES dictionary. First calls calculate_total_same to check how many items in that line match up. Next, calls calculate_earning_per_line to see how much the user has won on that line. Afterwards, it is added to an accumulator. Once all lines have been looped through, and appropriate messages have been displayed, the total amount won is returned. 
+5. display_total_winnings - calls sum_each_line_winning to get the total amount won. Displays an appropriate final messages based on whether or not the user has won anything, and returns the total winnings. 
+6. reset_values - resets all the values of the LINES_COMBOS_OUTCOMES dictionary to None, and the total_win to 0  
 
 # main.py
 
 Contains the main method, which acts to organize the User, Display, and Outcomes classes into the appropriate game flow for the user.
 The main method contains a while loop, which calls upon the various methods within these 3 classes when appropriate. 
+
+# keyboard_controls.py
+Contains 2 methods used for turning off and on the user's keyboard. These were added to fix a bug where a user hitting keys could disrupt the flow of the game.
+1. disable_keyboard - loops through every key and shuts off its functionality
+2. enable_keyboard - loops through every key and turns on its functionality. 
+
 
 # Future Prospects
 1. Add a GUI
@@ -151,3 +160,4 @@ The main method contains a while loop, which calls upon the various methods with
 >I previously attempted to use tkinter to display the emojis. However, due to the limitations of tkinter, it is unable to display the emojis in full color
 >I understand that there is a way to display an image of the emoji on screen, which will preserve the full color. 
 >However, I am simply unwilling to take the time to make this happen at the moment, as there are other project I need to work on. 
+
