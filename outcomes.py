@@ -9,7 +9,7 @@ FIVE_LINE_BONUS: int = 10
 
 class Outcomes:
 
-    def __init__(self, num_lines_bid_on: int, amount_bid: int, board_to_compare):
+    def __init__(self, num_lines_bid_on: int, amount_bid: int, board_to_compare: list):
         self.num_lines_bid_on: int = num_lines_bid_on
         self.bid_per_line: int = amount_bid
         self.board_to_compare: list = board_to_compare
