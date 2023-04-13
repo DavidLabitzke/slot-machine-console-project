@@ -25,17 +25,17 @@ def hear_rules():
         time.sleep(2)
     print(f"You can bid between {BIDS_POSSIBLE_PER_LINE[0]} to {BIDS_POSSIBLE_PER_LINE[-1]} pennies per line")
     print(f"Additionally, there are {len(SYMBOL_PAYOUTS)} possible symbols to match up")
-    print("Each symbol awards you a different amount of pennies per penny bid on that line,"
+    print("Each symbol awards you a different amount of pennies per penny bid on that line, "
           "if the first 3 symbols of a line (starting left to right) are the same")
-    print(f"If 4 of those symbol fall in a row, the payout will be multiplied by {FOUR_LINE_BONUS}")
+    print(f"If 4 symbols are the same, the payout will be multiplied by {FOUR_LINE_BONUS}")
     print(f"If all 5 symbols within a line are the same, the payout will be multiplied by {FIVE_LINE_BONUS}")
     time.sleep(10)
     print(f"These are all {len(SYMBOL_PAYOUTS)} symbols, with their values per 3, 4, and 5 in a row respectively\n")
     for key, value in SYMBOL_PAYOUTS.items():
         print(key + "\ufe0f")
-        print(f"First 3: {value}")
-        print(f"First 4: {value * FOUR_LINE_BONUS}")
-        print(f"All 5: {value * FIVE_LINE_BONUS}")
+        print(f"First 3: {value: ,}")
+        print(f"First 4: {value * FOUR_LINE_BONUS: ,}")
+        print(f"All 5: {value * FIVE_LINE_BONUS: ,}")
         print("\n")
         time.sleep(3)
     print("That should cover just about everything. Good luck and happy playing!")
