@@ -1,10 +1,20 @@
 # Main.py, Runs Program
 import time
+import keyboard
 from display import Display
 from user import User
 from outcomes import Outcomes
 from rules import hear_rules
 
+
+def disable_keyboard():
+    for i in range(150):
+        keyboard.block_key(i)
+
+
+def enable_keyboard():
+    for i in range(150):
+        keyboard.unblock_key(i)
 
 def main():
     """Runs The Game"""
@@ -27,7 +37,9 @@ def main():
             reward_calculator.create_lines()
             user.balance += reward_calculator.check_if_winner()
             print(f"Your balance now is ${user.balance / 100: .2f}\n")
+            disable_keyboard()
             time.sleep(2)
+            enable_keyboard()
             if user.continue_playing():
                 print("\nDo you want to add more funds?")
                 user_wants_add_money = input("Type 'y' to add funds, anything else to continue playing: ")
