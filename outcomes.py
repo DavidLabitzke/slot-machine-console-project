@@ -25,40 +25,51 @@ class Outcomes:
                 current_line_outcome += item_to_put
             LINE_COMBOS_OUTCOMES[current_line] = current_line_outcome
 
-    def calculate_winnings(self) -> int:
-        """Evaluates if any of the lines are winning lines, calculates winnings per line,
-        and returns the total amount won.
-        This method also prints relevant messages about the user's winnings to the console"""
+    def calculate_earning_per_line(self, total_symbols_same, value_to_compare) -> int:
+        line_win = 0
+        match total_symbols_same:
+            case 3:
+                line_win += self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare]
+            case 4:
+                line_win: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FOUR_LINE_BONUS
+            case 5:
+                line_win: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FIVE_LINE_BONUS
+        return line_win
+
+    @staticmethod
+    def calculate_total_same(items_being_compared, value_to_compare) -> int:
+        """Checks how many symbols within a line match up"""
+        total_symbols_same = 0
+        for symbol in items_being_compared:
+            if symbol != value_to_compare:
+                break
+            total_symbols_same += 1
+        return total_symbols_same
+
+    def sum_each_line_winnings(self) -> int:
+        """Checks each of the outcome to see if it has won,
+        accumulates the win across each line,
+        and returns the cumulative win"""
         total_win: int = 0
         for key, value in LINE_COMBOS_OUTCOMES.items():
             if value is not None:
-                current_line_num: int = key
-                items_being_compared: str = value
                 value_to_compare: str = value[0]
                 value_to_display: str = value_to_compare + "\ufe0f"
-                total_symbols_same: int = 0
+                total_symbols_same: int = self.calculate_total_same(items_being_compared=value,
+                                                                    value_to_compare=value_to_compare)
 
-                for symbol in items_being_compared:
-                    if symbol != value_to_compare:
-                        break
-                    total_symbols_same += 1
+                line_earning = self.calculate_earning_per_line(total_symbols_same, value_to_compare)
+                total_win += line_earning
+                if total_symbols_same >= 3:
+                    print(f"You've won ${line_earning / 100: .2f} with {total_symbols_same} "
+                          f"{value_to_display}'s on line {key}")
 
-                match total_symbols_same:
-                    case 3:
-                        amount_won: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare]
-                        total_win += amount_won
-                        print(f"You've won ${amount_won / 100: .2f} with {total_symbols_same} "
-                              f"{value_to_display}'s on line {current_line_num}")
-                    case 4:
-                        amount_won: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FOUR_LINE_BONUS
-                        total_win += amount_won
-                        print(f"You've won ${amount_won / 100: .2f} with {total_symbols_same} "
-                              f"{value_to_display}'s on line {current_line_num}")
-                    case 5:
-                        amount_won: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FIVE_LINE_BONUS
-                        total_win += amount_won
-                        print(f"You've won ${amount_won / 100: .2f} with {total_symbols_same} "
-                              f"{value_to_display}'s on line {current_line_num}")
+        return total_win
+
+    def display_total_winnings(self) -> int:
+        """Calls sum_each_line_winnings to get the total win, display the appropriate message,
+        and return total win"""
+        total_win: int = self.sum_each_line_winnings()
 
         self.total_win += total_win
 
