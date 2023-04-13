@@ -1,5 +1,6 @@
 import keyboard
 
+
 def disable_keyboard():
     for i in range(150):
         keyboard.block_key(i)
