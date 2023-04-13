@@ -5,12 +5,11 @@ from user import User
 from outcomes import Outcomes
 from rules import hear_rules
 
-display = Display()
-user = User()
-
 
 def main():
     """Runs The Game"""
+    display = Display()
+    user = User()
     print("Welcome To My Slot Machine!!!")
     hear_rules()
     user.get_deposit()
