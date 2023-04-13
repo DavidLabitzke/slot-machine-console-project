@@ -1,5 +1,5 @@
 # symbols.py, stores 2 dictionaries of data about each possible symbol
-SYMBOL_VALUES: dict = {
+SYMBOL_PAYOUTS: dict = {
     "✅": 10000,
     "♦": 5000,
     "♥": 4000,

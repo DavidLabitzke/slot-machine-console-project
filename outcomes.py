@@ -1,7 +1,7 @@
 # outcomes.py, handles any outputs to the user
 from line_combos_configurations import LINE_COMBOS_CONFIGURATIONS
 from line_combos_outcomes import LINE_COMBOS_OUTCOMES
-from symbols import SYMBOL_VALUES
+from symbols import SYMBOL_PAYOUTS
 
 FOUR_LINE_BONUS: int = 4
 FIVE_LINE_BONUS: int = 10
@@ -45,17 +45,17 @@ class Outcomes:
 
                 match total_symbols_same:
                     case 3:
-                        amount_won: int = self.bid_per_line * SYMBOL_VALUES[value_to_compare]
+                        amount_won: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare]
                         total_win += amount_won
                         print(f"You've won ${amount_won / 100: .2f} with {total_symbols_same} "
                               f"{value_to_display}'s on line {current_line_num}")
                     case 4:
-                        amount_won: int = self.bid_per_line * SYMBOL_VALUES[value_to_compare] * FOUR_LINE_BONUS
+                        amount_won: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FOUR_LINE_BONUS
                         total_win += amount_won
                         print(f"You've won ${amount_won / 100: .2f} with {total_symbols_same} "
                               f"{value_to_display}'s on line {current_line_num}")
                     case 5:
-                        amount_won: int = self.bid_per_line * SYMBOL_VALUES[value_to_compare] * FIVE_LINE_BONUS
+                        amount_won: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FIVE_LINE_BONUS
                         total_win += amount_won
                         print(f"You've won ${amount_won / 100: .2f} with {total_symbols_same} "
                               f"{value_to_display}'s on line {current_line_num}")

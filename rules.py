@@ -2,7 +2,7 @@
 import time
 from user import NUM_LINES_POSSIBLE, BIDS_POSSIBLE_PER_LINE
 from display import ROWS, COLUMNS
-from symbols import SYMBOL_VALUES
+from symbols import SYMBOL_PAYOUTS
 from outcomes import FIVE_LINE_BONUS, FOUR_LINE_BONUS
 from line_combos_configurations import LINE_COMBOS_CONFIGURATIONS
 
@@ -22,14 +22,14 @@ def hear_rules():
         print(create_lines_board(i + 1, LINE_COMBOS_CONFIGURATIONS[i + 1]))
         time.sleep(2)
     print(f"You can bid between {BIDS_POSSIBLE_PER_LINE[0]} to {BIDS_POSSIBLE_PER_LINE[-1]} pennies per line")
-    print(f"Additionally, there are {len(SYMBOL_VALUES)} possible symbols to match up")
+    print(f"Additionally, there are {len(SYMBOL_PAYOUTS)} possible symbols to match up")
     print("Each symbol awards you a different amount of pennies per penny bid on that line,"
           "if the first 3 symbols of a line (starting left to right) are the same")
     print(f"If 4 of those symbol fall in a row, the payout will be multiplied by {FOUR_LINE_BONUS}")
     print(f"If all 5 symbols within a line are the same, the payout will be multiplied by {FIVE_LINE_BONUS}")
     time.sleep(10)
-    print(f"These are all {len(SYMBOL_VALUES)} symbols, with their values per 3, 4, and 5 in a row respectively\n")
-    for key, value in SYMBOL_VALUES.items():
+    print(f"These are all {len(SYMBOL_PAYOUTS)} symbols, with their values per 3, 4, and 5 in a row respectively\n")
+    for key, value in SYMBOL_PAYOUTS.items():
         print(key + "\ufe0f")
         print(f"First 3: {value}")
         print(f"First 4: {value * FOUR_LINE_BONUS}")
