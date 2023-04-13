@@ -25,7 +25,7 @@ class Outcomes:
                 current_line_outcome += item_to_put
             LINE_COMBOS_OUTCOMES[current_line] = current_line_outcome
 
-    def check_if_winner(self) -> int:
+    def calculate_winnings(self) -> int:
         """Evaluates if any of the lines are winning lines, calculates winnings per line,
         and returns the total amount won.
         This method also prints relevant messages about the user's winnings to the console"""

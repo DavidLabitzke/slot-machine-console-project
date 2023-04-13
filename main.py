@@ -36,7 +36,7 @@ def main():
             display.create_board_display()
             reward_calculator = Outcomes(user.num_lines_bid_on, user.bid_per_line, display.board_compared_list)
             reward_calculator.create_lines()
-            user.balance += reward_calculator.check_if_winner()
+            user.balance += reward_calculator.calculate_winnings()
             print(f"Your balance now is ${user.balance / 100: .2f}\n")
             disable_keyboard()
             time.sleep(2)
