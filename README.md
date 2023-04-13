@@ -11,12 +11,12 @@ Each emoji returns a different amount if 3 are matched on a line.
 If 4 are matched, the reward is multiplied by 4
 If 5 are matched, the reward is multiplied by 10
 These are all 16 emojis, with the reward given in pennies
-✅ - 10000 
-♦ - 5000
-♥ - 4000
-♣ - 3000
-♠ - 2000
-☯ - 1000 
+✅ - 10,000 
+♦ - 5,000
+♥ - 4,000
+♣ - 3,000
+♠ - 2,000
+☯ - 1,000 
 🔴 - 500
 🔵 - 250 
 ⚫ - 125
