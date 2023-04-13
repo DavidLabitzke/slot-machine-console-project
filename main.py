@@ -1,20 +1,10 @@
 # Main.py, Runs Program
 import time
-import keyboard
 from display import Display
 from user import User
 from outcomes import Outcomes
 from rules import hear_rules
-
-
-def disable_keyboard():
-    for i in range(150):
-        keyboard.block_key(i)
-
-
-def enable_keyboard():
-    for i in range(150):
-        keyboard.unblock_key(i)
+from keyboard_controls import disable_keyboard, enable_keyboard
 
 
 def main():

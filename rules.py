@@ -5,6 +5,7 @@ from display import ROWS, COLUMNS
 from symbols import SYMBOL_PAYOUTS
 from outcomes import FIVE_LINE_BONUS, FOUR_LINE_BONUS
 from line_combos_configurations import LINE_COMBOS_CONFIGURATIONS
+from keyboard_controls import disable_keyboard, enable_keyboard
 
 
 def hear_rules():
@@ -13,6 +14,7 @@ def hear_rules():
     response = input("Hit 'y' to hear the rules. Anything else to continue: ")
     if not response == "y":
         return
+    disable_keyboard()
     print(f"This slot machine's board consists of {ROWS} rows and {COLUMNS} columns")
     print(f"The objective is to match 3 or more symbols in one of up to {NUM_LINES_POSSIBLE[-1]} lines")
     time.sleep(10)
@@ -37,6 +39,7 @@ def hear_rules():
         print("\n")
         time.sleep(3)
     print("That should cover just about everything. Good luck and happy playing!")
+    enable_keyboard()
 
 
 def create_lines_board(line_num: int, line_list: list) -> str:
