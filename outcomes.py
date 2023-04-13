@@ -26,14 +26,16 @@ class Outcomes:
             LINE_COMBOS_OUTCOMES[current_line] = current_line_outcome
 
     def calculate_earning_per_line(self, total_symbols_same, value_to_compare) -> int:
+        """Calculate's each line's earning based on the number of matching symbols"""
         line_win = 0
+        base_payout = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare]
         match total_symbols_same:
             case 3:
-                line_win += self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare]
+                line_win += base_payout
             case 4:
-                line_win: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FOUR_LINE_BONUS
+                line_win: int = base_payout * FOUR_LINE_BONUS
             case 5:
-                line_win: int = self.bid_per_line * SYMBOL_PAYOUTS[value_to_compare] * FIVE_LINE_BONUS
+                line_win: int = base_payout * FIVE_LINE_BONUS
         return line_win
 
     @staticmethod
