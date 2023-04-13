@@ -16,6 +16,7 @@ def enable_keyboard():
     for i in range(150):
         keyboard.unblock_key(i)
 
+
 def main():
     """Runs The Game"""
     display = Display()
