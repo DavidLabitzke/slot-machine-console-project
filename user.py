@@ -1,5 +1,5 @@
 # user.py, handles any inputs from the user
-NUM_LINES_POSSIBLE: list = [5, 10, 15, 20, 25]
+NUM_LINES_POSSIBLE: list = [5, 10, 15, 20, 25, 50]
 BIDS_POSSIBLE_PER_LINE: list = [1, 2, 5, 10, 20]
 
 
