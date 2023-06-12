@@ -26,10 +26,10 @@ class Display:
         """Creates the board to be displayed onto the console from board_displayed_list, and prints it"""
         self.create_boards_lists()
         board_display: str = ""
-        for column in self.board_displayed_list:
+        for row in self.board_displayed_list:
             board_display += "|"
             for i in range(COLUMNS):
-                board_display += column[i] + "\ufe0f"
+                board_display += row[i] + "\ufe0f"
                 board_display += "|"
             board_display += "\n"
 
