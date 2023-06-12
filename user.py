@@ -79,25 +79,3 @@ class User:
             self.is_playing = False
             print(f"Thanks for playing. Your total payout is ${self.balance / 100: .2f}")
         return self.is_playing
-
-    def double_check_deposit(self) -> bool:
-        """Called by the double_check_bid method when the user indicates they want to add more money"""
-        print("Insufficient funds. Please insert more money to continue")
-        insert_more = input("Type 'y' to deposit more money. Anything else to quit playing: ")
-        if insert_more.lower() == "y":
-            self.get_deposit()
-        else:
-            print(f"Thanks for playing. Your total payout is ${self.balance / 100: .2f}")
-            self.is_playing = False
-            return self.is_playing
-
-    def double_check_bid(self):
-        """Script that plays when the user does not have enough money to place the current bid.
-        Urges the user to either change their bet, or add more money"""
-        print("You do not have enough money to place this bid. Would you like to adjust your bid?")
-        response = input("Type 'y' to adjust your bid. Anything else to deposit more money: ")
-        if response.lower() == "y":
-            self.get_lines()
-            self.get_bid_per_line()
-        else:
-            self.double_check_deposit()

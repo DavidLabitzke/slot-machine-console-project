@@ -19,7 +19,14 @@ def main():
     user.calculate_new_bid_total(per_line=user.bid_per_line, num_lines=user.num_lines_bid_on)
     while user.is_playing:
         if not user.bid_total <= user.balance:
-            user.double_check_bid()
+            print("Insufficient funds!")
+            print("Would you like to add more money, or change your bid?")
+            deposit_more = input("Type 'y' to add money, anything else to adjust bid: ")
+            if deposit_more.lower() == "y":
+                user.get_deposit()
+            user.get_lines()
+            user.get_bid_per_line()
+            user.calculate_new_bid_total(per_line=user.bid_per_line, num_lines=user.num_lines_bid_on)
         else:
             print("\n")
             user.deduct_bet_from_balance()
