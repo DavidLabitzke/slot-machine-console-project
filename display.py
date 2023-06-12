@@ -1,6 +1,7 @@
 # display.py, Controls The Way Symbols Appear On Screen
 import random
 from symbols import SYMBOL_QUANTITIES
+import time
 
 ROWS: int = 3
 COLUMNS: int = 5
@@ -33,7 +34,10 @@ class Display:
                 board_display += "|"
             board_display += "\n"
 
-        print(board_display)
+        for char in board_display:
+            print(char, end="")
+            time.sleep(0.05)
+        print("\n")
 
     def reset_boards(self):
         """Resets the values of the board lists, so they can be refilled with new values"""
