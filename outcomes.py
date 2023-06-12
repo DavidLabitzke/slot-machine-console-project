@@ -2,6 +2,7 @@
 from line_combos_configurations import LINE_COMBOS_CONFIGURATIONS
 from line_combos_outcomes import LINE_COMBOS_OUTCOMES
 from symbols import SYMBOL_PAYOUTS
+import time
 
 FOUR_LINE_BONUS: int = 4
 FIVE_LINE_BONUS: int = 10
@@ -63,6 +64,7 @@ class Outcomes:
                 line_earning = self.calculate_earning_per_line(total_symbols_same, value_to_compare)
                 total_win += line_earning
                 if total_symbols_same >= 3:
+                    time.sleep(0.25)
                     print(f"You've won ${line_earning / 100: .2f} with {total_symbols_same} "
                           f"{value_to_display}'s on line {key}")
 
@@ -74,7 +76,7 @@ class Outcomes:
         total_win: int = self.sum_each_line_winnings()
 
         self.total_win += total_win
-
+        time.sleep(1)
         if self.total_win == 0:
             print("Better Luck Next Time")
         else:
