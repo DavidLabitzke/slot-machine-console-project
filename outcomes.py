@@ -7,6 +7,10 @@ import time
 FOUR_LINE_BONUS: int = 4
 FIVE_LINE_BONUS: int = 10
 
+# Used for diagnosing pay out percentage
+payout_numerator = 0
+payout_denominator = 0
+
 
 class Outcomes:
 
@@ -15,6 +19,7 @@ class Outcomes:
         self.bid_per_line: int = amount_bid
         self.board_to_compare: list = board_to_compare
         self.total_win: int = 0
+        self.diagnosing = True
 
     def create_lines(self):
         """Fills LINE_COMBOS_OUTCOMES with the values of each corresponding line on the board"""
@@ -73,14 +78,20 @@ class Outcomes:
     def display_total_winnings(self) -> int:
         """Calls sum_each_line_winnings to get the total win, display the appropriate message,
         and return total win"""
+        global payout_numerator, payout_denominator
         total_win: int = self.sum_each_line_winnings()
 
         self.total_win += total_win
         time.sleep(1)
+        payout_denominator += 1
         if self.total_win == 0:
             print("Better Luck Next Time")
         else:
             print(f"Your total payout is ${self.total_win / 100: .2f}")
+            payout_numerator += 1
+
+        if self.diagnosing:
+            print(f"This machine pays out {payout_numerator}/{payout_denominator} times")
         return self.total_win
 
     def reset_values(self):
