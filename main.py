@@ -13,6 +13,7 @@ def main():
     user = User()
 
     print("Welcome To My Slot Machine!!!")
+    diagnostics_mode = input("Type in the password to enable diagnostics mode: ")
     hear_rules()
 
     user.get_deposit()
@@ -38,7 +39,8 @@ def main():
             user.deduct_bet_from_balance()
             display.create_board_display()
 
-            reward_calculator = Outcomes(user.num_lines_bid_on, user.bid_per_line, display.board_compared_list)
+            reward_calculator = Outcomes(user.num_lines_bid_on, user.bid_per_line,
+                                         display.board_compared_list, diagnosing=diagnostics_mode)
             reward_calculator.create_lines()
 
             user.balance += reward_calculator.display_total_winnings()

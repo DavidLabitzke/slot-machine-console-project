@@ -10,16 +10,17 @@ FIVE_LINE_BONUS: int = 10
 # Used for diagnosing pay out percentage
 payout_numerator = 0
 payout_denominator = 0
+DIAGNOSING_PASSCODE = "Test"
 
 
 class Outcomes:
 
-    def __init__(self, num_lines_bid_on: int, amount_bid: int, board_to_compare: list):
+    def __init__(self, num_lines_bid_on: int, amount_bid: int, board_to_compare: list, diagnosing: str):
         self.num_lines_bid_on: int = num_lines_bid_on
         self.bid_per_line: int = amount_bid
         self.board_to_compare: list = board_to_compare
         self.total_win: int = 0
-        self.diagnosing = True
+        self.diagnosing = (diagnosing == DIAGNOSING_PASSCODE)
 
     def create_lines(self):
         """Fills LINE_COMBOS_OUTCOMES with the values of each corresponding line on the board"""
