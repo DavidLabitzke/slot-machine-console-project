@@ -18,7 +18,7 @@ SYMBOL_PAYOUTS: dict = {
     "🍏": 5,
 }
 
-SYMBOL_QUANTITIES: dict = {
+MAIN_SYMBOL_QUANTITIES: dict = {
     "✅": 2,
     "♦": 3,
     "♥": 4,
@@ -35,4 +35,26 @@ SYMBOL_QUANTITIES: dict = {
     "🍋": 62,
     "🍈": 65,
     "🍏": 70,
+}
+
+MAXI_SYMBOL_QUANTITIES = {
+    "✅": 2,
+    "♦": 3,
+    "♥": 4,
+    "♣": 5,
+    "♠": 7,
+}
+
+MAJOR_SYMBOL_QUANTITIES = {
+    "☯": 2,
+    "🔴": 3,
+    "🔵": 6,
+    "⚫": 8,
+}
+
+MINOR_SYMBOL_QUANTITIES = {
+    "🍒": 2,
+    "🍉": 3,
+    "🍊": 6,
+    "🍇": 8,
 }
