@@ -14,9 +14,11 @@ class Display:
         self.maxi_symbols: list = [key for key, value in MAXI_SYMBOL_QUANTITIES.items() for _ in range(value)]
         self.major_symbols: list = [key for key, value in MAJOR_SYMBOL_QUANTITIES.items() for _ in range(value)]
         self.minor_symbols: list = [key for key, value in MINOR_SYMBOL_QUANTITIES.items() for _ in range(value)]
+        self.jackpot_symbols: list = ["✅"]
 
-        self.maxi_odds = 10000
-        self.major_odds = 1000
+        self.jackpot_odds = 1_000_000
+        self.maxi_odds = 10_000
+        self.major_odds = 1_000
         self.minor_odds = 100
 
         self.promotional_message = None
@@ -25,10 +27,13 @@ class Display:
         self.board_displayed_list: list = []
 
     def pick_board_to_use(self):
-        check_maxi = random.randint(0, self.maxi_odds)
+        check_jackpot = random.randint(0, self.jackpot_odds)
+        check_maxi =  random.randint(0, self.maxi_odds)
         check_major = random.randint(0, self.major_odds)
         check_minor =  random.randint(0, self.minor_odds)
-        if check_maxi == 1:
+        if check_jackpot == 1:
+            return self.jackpot_symbols
+        elif check_maxi == 1:
             return self.maxi_symbols
         elif check_major == 1:
             return self.major_symbols
@@ -38,6 +43,8 @@ class Display:
             return self.main_symbols
 
     def change_promotional_message(self, symbols):
+        if symbols == self.jackpot_symbols:
+            self.promotional_message = "JACKPOT!!!\n"
         if symbols == self.maxi_symbols:
             self.promotional_message = "MAXI WINNINGS POSSIBLE!!!"
         if symbols == self.major_symbols:
@@ -71,7 +78,8 @@ class Display:
         if self.promotional_message is not None:
             print(self.promotional_message)
             time.sleep(5)
-        print("Good Luck \n")
+        if self.promotional_message != "JACKPOT!!!\n":
+            print("Good Luck \n")
 
         for char in board_display:
             print(char, end="")
