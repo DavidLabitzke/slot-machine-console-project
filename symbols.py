@@ -38,23 +38,22 @@ MAIN_SYMBOL_QUANTITIES: dict = {
 }
 
 MAXI_SYMBOL_QUANTITIES = {
-    "✅": 2,
-    "♦": 3,
+    "♦": 2,
     "♥": 4,
-    "♣": 5,
-    "♠": 7,
+    "♣": 6,
+    "♠": 8,
 }
 
 MAJOR_SYMBOL_QUANTITIES = {
     "☯": 2,
-    "🔴": 3,
+    "🔴": 4,
     "🔵": 6,
     "⚫": 8,
 }
 
 MINOR_SYMBOL_QUANTITIES = {
     "🍒": 2,
-    "🍉": 3,
+    "🍉": 4,
     "🍊": 6,
     "🍇": 8,
 }

@@ -42,7 +42,7 @@ def hear_rules():
     time.sleep(3)
     print("When the machine hits jackpot mode, the whole board will be ✅, and will pay the largest prize possible")
     time.sleep(1)
-    print("When the machine hits maxi mode, the only symbols possible will be ✅, ♦, ♥, ♣, and ♠")
+    print("When the machine hits maxi mode, the only symbols possible will be ♦, ♥, ♣, and ♠")
     print("When the machine hits major mode, the only symbols possible will be ☯, 🔴, 🔵, and ⚫")
     print("When the machine hits minor mode, the only symbols possible will be 🍒, 🍉, 🍊, and 🍇")
     time.sleep(1)
