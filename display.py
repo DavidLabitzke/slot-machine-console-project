@@ -16,10 +16,10 @@ class Display:
         self.minor_symbols: list = [key for key, value in MINOR_SYMBOL_QUANTITIES.items() for _ in range(value)]
         self.jackpot_symbols: list = ["✅"]
 
-        self.jackpot_odds = 1_000_000
-        self.maxi_odds = 10_000
-        self.major_odds = 1_000
-        self.minor_odds = 100
+        self.jackpot_odds = 100_000
+        self.maxi_odds = 5_000
+        self.major_odds = 500
+        self.minor_odds = 50
 
         self.promotional_message = None
 
