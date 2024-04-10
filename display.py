@@ -30,7 +30,7 @@ class Display:
         check_jackpot = random.randint(0, self.jackpot_odds)
         check_maxi = random.randint(0, self.maxi_odds)
         check_major = random.randint(0, self.major_odds)
-        check_minor = 1 # random.randint(0, self.minor_odds)
+        check_minor = random.randint(0, self.minor_odds)
         if check_jackpot == 1:
             return self.jackpot_symbols
         elif check_maxi == 1:
