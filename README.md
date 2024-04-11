@@ -3,7 +3,7 @@
 # My First Slot Machine Project in Python
 
 This is a simple, terminal based slot machine project, written entirely in Python. 
-The goal of the game is to match 3 or more symbols in up to 25 lines the machine currently offers. 
+The goal of the game is to match 3 or more symbols in up to 50 lines the machine currently offers. 
 The game board features 3 rows and 5 columns. 
 This is a penny machine, meaning that bets are placed in pennies per line. The player can bid between 1-20 pennies per line
 There are 16 different emojis that can appear, which can be matched.
@@ -27,6 +27,14 @@ These are all 16 emojis, with the reward given in pennies
 🍋 - 20 
 🍈 - 10
 🍏 - 5
+
+I have updated the game so that a few different "boards" can show up at random. 
+1. Minor board, which only uses the following symbols - 🍒 🍉 🍊 🍇
+2. Major board, which only uses the following symbols - ☯ 🔴 🔵 ⚫
+3. Maxi board, which only uses the following symbols - ♦ ♥ ♣ ♠
+4. Jackpot board, which only uses the following symbol - ✅
+
+This was done in an effort to create a bonus play feature. 
 
 This should give a general overview of the basic game mechanics and rules. 
 Next I want to briefly explain the role of each file, as well as discuss future plans for this projects
@@ -159,5 +167,8 @@ Contains 2 methods used for turning off and on the user's keyboard. These were a
 >I would love it if this could eventually become an actual GUI app, which mimics the look and feel of a real slot machine more closely. 
 >I previously attempted to use tkinter to display the emojis. However, due to the limitations of tkinter, it is unable to display the emojis in full color
 >I understand that there is a way to display an image of the emoji on screen, which will preserve the full color. 
->However, I am simply unwilling to take the time to make this happen at the moment, as there are other project I need to work on. 
+>However, I am simply unwilling to take the time to make this happen at the moment, as there are other project I need to work on.
+>
+>I am aspiring to learn how to work with unity to create GUI slot machine games in the future.
+>At this time, I am mainly focusing on learning how to use the game engine, but I am hoping to create more slot machine games in the future. 
 
